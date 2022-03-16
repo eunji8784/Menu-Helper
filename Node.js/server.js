@@ -8,6 +8,7 @@ app.listen(3000, function() {
   console.log('서버 실행 중...');
 });
 
+// 메뉴 찾아오기 
 app.get('/search/:kname', function (req, res) {
   var sql = 'select kname from Kmenu';
   mysqlDB.query(sql, function(err, rows) {
@@ -30,6 +31,7 @@ app.get('/search/:kname', function (req, res) {
   });
 });
 
+// 랜덤으로 메뉴 가져오기
 app.get('/random', function(req, res) {
   var sql = 'select * from Kmenu order by rand() limit 1';
   mysqlDB.query(sql, function(err, rows) {
